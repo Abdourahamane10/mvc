@@ -18,12 +18,11 @@ class PageRepository extends Repository
    */
   function read($name)
   {
-    $statement = $this->db->prepare('SELECT * from posts WHERE post_type="page" and post_name="'.$name.'"');
-    
+    $statement = $this->db->prepare('SELECT * from posts WHERE post_type="page" and post_name="' . $name . '"');
+
     try {
 
       $statement->execute();
-    
     } catch (\PDOException $e) {
       echo "Statement failed: " . $e->getMessage();
       return false;

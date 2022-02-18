@@ -13,17 +13,19 @@ abstract class Post
     protected $name;
     protected $category;
 
-    function _construct() {
-
+    function _construct()
+    {
     }
 
     //Getter & Setters
-    
-    function title() {
+
+    function title()
+    {
         return $this->title;
     }
 
-    function content() {
+    function content()
+    {
         return $this->content;
     }
 }

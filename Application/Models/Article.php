@@ -5,8 +5,10 @@ namespace Application\Models;
 class Article extends Post
 {
 
-    function _construct() {
-
+    function __construct($values)
+    {
+        $this->title = isset($values['post_title']) ? $values['post_title'] : null;
+        $this->content = isset($values['post_content']) ? $values['post_content'] : null;
     }
 
     //Getter & Setters différent?
