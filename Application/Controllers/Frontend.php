@@ -208,6 +208,18 @@ class Frontend
     {
 
         /***********************************************/
+        if (!(isset($_POST["newsletter_email"]))) {
+            $this->view->setVar("view", 'frontend/newsletterView');
+        } else {
+            $email = var_dump($_POST["newsletter_email"], FILTER_VALIDATE_EMAIL);
+
+            $newsletter_repository = new \Application\Models\NewsletterRepository(); //On instancie un repository
+            $newsletter_repository->create();
+
+            //On donne le nom de la vue que l'on va appler
+            $this->view->setVar("view", 'frontend/newsletter-accueil');
+        }
+
         /***********************************************/
 
         //on appelle la template, qui va utiliser la view que l'on a choisie
