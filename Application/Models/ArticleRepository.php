@@ -4,10 +4,17 @@ namespace Application\Models;
 
 require_once("Repository.php");
 
+//C'est moi qui l'ai rajouté
+require_once("Application\Controllers\Articles.php");
+
 class ArticleRepository extends Repository
 {
   function create()
   {
+    /*C'est moi qui l'ai completée (au départ vide)
+    */
+    $date = date('m-d-Y h:i:s a', time());
+    $this->db->prepare('INSERT INTO `posts`(`posts_date`, `posts_content`, `posts_title`, `posts_status`, `post_name`, `posts_type`, `posts_category`) VALUES(`$date`, `$content`, `$title`, `publish`, `$name`, `$type`, `$category`)');
   }
 
   function read($name)
@@ -30,12 +37,18 @@ class ArticleRepository extends Repository
     return $statement->fetch();
   }
 
-  function update()
+  function update($name)
   {
+    /*C'est moi qui l'ai completé (au départ vide)
+    */
+    $this->db->prepare('UPDATE `posts` SET `post_content`=`$content` WHERE post_name="' . $name . '#');
   }
 
-  function delete()
+  function delete($name)
   {
+    /*C'est moi qui l'ai completé (au depart vide)
+    */
+    $this->db->prepare('DELETE FROM `posts` WHERE posts_type="article" AND posts_name="' . $name . '"');
   }
   //C'est moi qui l'a completé (Au depart vide)
   //$categories = array()

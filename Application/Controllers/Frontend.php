@@ -181,7 +181,7 @@ class Frontend
         /***********************************************/
         if (!(isset($_POST["lname"])) || !(isset($_POST["email"])) || !(isset($_POST["message"])) || !(isset($_POST["date"]))) {
             //On donne le nom de la vue que l'on va appler (on appelle la formulaire)
-            $this->view->setVar("view", 'frontend/contact');
+            $this->view->setVar("view", 'frontend/contactView');
         } else {
             $name = filter_var($_POST["lname"], FILTER_SANITIZE_STRING);
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);

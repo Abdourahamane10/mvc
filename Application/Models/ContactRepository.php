@@ -12,7 +12,7 @@ class ContactRepository extends Repository
     //Crée un contact dans la base de données
     function create()
     {
-        $statement = $this->db->prepare('INSERT INTO `contact`(`contact_name`, `contact_email`, `contact_message`, `contact_date`) VALUES(`$name`, `$email`, `$message`, `$date`)');
+        $this->db->prepare('INSERT INTO `contact`(`contact_name`, `contact_email`, `contact_message`, `contact_date`) VALUES(`$name`, `$email`, `$message`, `$date`)');
     }
 
     function read($name)
